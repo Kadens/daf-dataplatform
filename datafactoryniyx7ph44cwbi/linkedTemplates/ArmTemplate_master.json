@@ -1,0 +1,70 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "datafactoryniyx7ph44cwbi"
+		},
+		"ArmtemplateStorageLinkedService_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'ArmtemplateStorageLinkedService'"
+		},
+		"DataLake_connectionString": {
+			"type": "secureString",
+			"metadata": "Secure string for 'connectionString' of 'DataLake'"
+		},
+		"HttpSSB07984_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://data.ssb.no/api/v0/no/table/07984/"
+		},
+		"HttpSsb07979Kommuner_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://data.ssb.no/api/v0/no/table/07979/"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "datafactoryniyx7ph44cwbi_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2018-02-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"ArmtemplateStorageLinkedService_connectionString": {
+						"value": "[parameters('ArmtemplateStorageLinkedService_connectionString')]"
+					},
+					"DataLake_connectionString": {
+						"value": "[parameters('DataLake_connectionString')]"
+					},
+					"HttpSSB07984_properties_typeProperties_url": {
+						"value": "[parameters('HttpSSB07984_properties_typeProperties_url')]"
+					},
+					"HttpSsb07979Kommuner_properties_typeProperties_url": {
+						"value": "[parameters('HttpSsb07979Kommuner_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		}
+	]
+}

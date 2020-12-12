@@ -1,0 +1,211 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "datafactoryniyx7ph44cwbi"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "[concat(parameters('factoryName'), '/HttpSSB07984')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "HttpServer",
+				"typeProperties": {
+					"url": "https://data.ssb.no/api/v0/no/table/07984/",
+					"enableServerCertificateValidation": true,
+					"authenticationType": "Anonymous"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/HttpSsb07979Kommuner')]",
+			"type": "Microsoft.DataFactory/factories/linkedServices",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"annotations": [],
+				"type": "HttpServer",
+				"typeProperties": {
+					"url": "https://data.ssb.no/api/v0/no/table/07979/",
+					"enableServerCertificateValidation": true,
+					"authenticationType": "Anonymous"
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/HttpSsb07984Json')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "HttpSSB07984",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "SSB"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "HttpServerLocation"
+					}
+				},
+				"schema": {}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/HttpSSB07984')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/Httpssb07979Json')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "HttpSsb07979Kommuner",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "SSB"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "HttpServerLocation"
+					}
+				},
+				"schema": {}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/linkedServices/HttpSsb07979Kommuner')]"
+			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DataLakeSsb07984JsonDataSet')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "DataLake",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "SSB"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "ssb-07984-json"
+					}
+				},
+				"schema": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DataLake07984PrepDataSet')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "DataLake",
+					"type": "LinkedServiceReference"
+				},
+				"folder": {
+					"name": "SSB"
+				},
+				"annotations": [],
+				"type": "Json",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"container": "ssb-07984-prep"
+					}
+				},
+				"schema": {}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/pl_copySSB')]",
+			"type": "Microsoft.DataFactory/factories/pipelines",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"activities": [
+					{
+						"name": "CopySsb07984",
+						"type": "Copy",
+						"dependsOn": [],
+						"policy": {
+							"timeout": "7.00:00:00",
+							"retry": 0,
+							"retryIntervalInSeconds": 30,
+							"secureOutput": false,
+							"secureInput": false
+						},
+						"userProperties": [],
+						"typeProperties": {
+							"source": {
+								"type": "JsonSource",
+								"storeSettings": {
+									"type": "HttpReadSettings",
+									"requestMethod": "POST",
+									"requestBody": "{\n  \"query\": [\n    {\n      \"code\": \"Region\",\n      \"selection\": {\n        \"filter\": \"agg:KommSummer\",\n        \"values\": [\n          \"K-3801\",\n          \"K-3802\",\n          \"K-3803\",\n          \"K-3804\",\n          \"K-3805\",\n          \"K-3806\",\n          \"K-3807\",\n          \"K-3808\",\n          \"K-3811\",\n          \"K-3812\",\n          \"K-3813\",\n          \"K-3814\",\n          \"K-3815\",\n          \"K-3816\",\n          \"K-3817\",\n          \"K-3818\",\n          \"K-3819\",\n          \"K-3820\",\n          \"K-3821\",\n          \"K-3822\",\n          \"K-3823\",\n          \"K-3824\",\n          \"K-3825\"\n        ]\n      }\n    },\n    {\n      \"code\": \"NACE2007\",\n      \"selection\": {\n        \"filter\": \"item\",\n        \"values\": [\n          \"01-03\",\n          \"05-09\",\n          \"10-33\",\n          \"35-39\",\n          \"41-43\",\n          \"45-47\",\n          \"49-53\",\n          \"55-56\",\n          \"58-63\",\n          \"64-66\",\n          \"68-75\",\n          \"77-82\",\n          \"84\",\n          \"85\",\n          \"86-88\",\n          \"90-99\",\n          \"00\"\n        ]\n      }\n    },\n    {\n      \"code\": \"Kjonn\",\n      \"selection\": {\n        \"filter\": \"item\",\n        \"values\": [\n          \"1\",\n          \"2\"\n        ]\n      }\n    },\n    {\n      \"code\": \"Alder\",\n      \"selection\": {\n        \"filter\": \"item\",\n        \"values\": [\n          \"15-74\"\n        ]\n      }\n    },\n    {\n      \"code\": \"Tid\",\n      \"selection\": {\n        \"filter\": \"item\",\n        \"values\": [\n          \"2015\",\n          \"2016\",\n          \"2017\",\n          \"2018\",\n          \"2019\"\n        ]\n      }\n    }\n  ],\n  \"response\": {\n    \"format\": \"json-stat2\"\n  }\n}",
+									"requestTimeout": ""
+								},
+								"formatSettings": {
+									"type": "JsonReadSettings"
+								}
+							},
+							"sink": {
+								"type": "JsonSink",
+								"storeSettings": {
+									"type": "AzureBlobStorageWriteSettings",
+									"copyBehavior": "PreserveHierarchy"
+								},
+								"formatSettings": {
+									"type": "JsonWriteSettings"
+								}
+							},
+							"enableStaging": false
+						},
+						"inputs": [
+							{
+								"referenceName": "HttpSsb07984Json",
+								"type": "DatasetReference"
+							}
+						],
+						"outputs": [
+							{
+								"referenceName": "DataLakeSsb07984JsonDataSet",
+								"type": "DatasetReference"
+							}
+						]
+					}
+				],
+				"folder": {
+					"name": "SSB"
+				},
+				"annotations": []
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/HttpSsb07984Json')]",
+				"[concat(variables('factoryId'), '/datasets/DataLakeSsb07984JsonDataSet')]"
+			]
+		}
+	]
+}
