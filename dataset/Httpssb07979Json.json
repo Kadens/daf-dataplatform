@@ -1,0 +1,20 @@
+{
+	"name": "Httpssb07979Json",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "HttpSsb07979Kommuner",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "SSB"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation"
+			}
+		},
+		"schema": {}
+	}
+}
