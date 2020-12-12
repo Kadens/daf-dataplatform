@@ -1,0 +1,61 @@
+{
+	"name": "pl_copySSB",
+	"properties": {
+		"activities": [
+			{
+				"name": "CopySsb07984",
+				"type": "Copy",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "JsonSource",
+						"storeSettings": {
+							"type": "HttpReadSettings",
+							"requestMethod": "POST",
+							"requestBody": "{\n  \"query\": [\n    {\n      \"code\": \"Region\",\n      \"selection\": {\n        \"filter\": \"agg:KommSummer\",\n        \"values\": [\n          \"K-3801\",\n          \"K-3802\",\n          \"K-3803\",\n          \"K-3804\",\n          \"K-3805\",\n          \"K-3806\",\n          \"K-3807\",\n          \"K-3808\",\n          \"K-3811\",\n          \"K-3812\",\n          \"K-3813\",\n          \"K-3814\",\n          \"K-3815\",\n          \"K-3816\",\n          \"K-3817\",\n          \"K-3818\",\n          \"K-3819\",\n          \"K-3820\",\n          \"K-3821\",\n          \"K-3822\",\n          \"K-3823\",\n          \"K-3824\",\n          \"K-3825\"\n        ]\n      }\n    },\n    {\n      \"code\": \"NACE2007\",\n      \"selection\": {\n        \"filter\": \"item\",\n        \"values\": [\n          \"01-03\",\n          \"05-09\",\n          \"10-33\",\n          \"35-39\",\n          \"41-43\",\n          \"45-47\",\n          \"49-53\",\n          \"55-56\",\n          \"58-63\",\n          \"64-66\",\n          \"68-75\",\n          \"77-82\",\n          \"84\",\n          \"85\",\n          \"86-88\",\n          \"90-99\",\n          \"00\"\n        ]\n      }\n    },\n    {\n      \"code\": \"Kjonn\",\n      \"selection\": {\n        \"filter\": \"item\",\n        \"values\": [\n          \"1\",\n          \"2\"\n        ]\n      }\n    },\n    {\n      \"code\": \"Alder\",\n      \"selection\": {\n        \"filter\": \"item\",\n        \"values\": [\n          \"15-74\"\n        ]\n      }\n    },\n    {\n      \"code\": \"Tid\",\n      \"selection\": {\n        \"filter\": \"item\",\n        \"values\": [\n          \"2015\",\n          \"2016\",\n          \"2017\",\n          \"2018\",\n          \"2019\"\n        ]\n      }\n    }\n  ],\n  \"response\": {\n    \"format\": \"json-stat2\"\n  }\n}",
+							"requestTimeout": ""
+						},
+						"formatSettings": {
+							"type": "JsonReadSettings"
+						}
+					},
+					"sink": {
+						"type": "JsonSink",
+						"storeSettings": {
+							"type": "AzureBlobStorageWriteSettings",
+							"copyBehavior": "PreserveHierarchy"
+						},
+						"formatSettings": {
+							"type": "JsonWriteSettings"
+						}
+					},
+					"enableStaging": false
+				},
+				"inputs": [
+					{
+						"referenceName": "HttpSsb07984Json",
+						"type": "DatasetReference"
+					}
+				],
+				"outputs": [
+					{
+						"referenceName": "DataLakeSsb07984JsonDataSet",
+						"type": "DatasetReference"
+					}
+				]
+			}
+		],
+		"folder": {
+			"name": "SSB"
+		},
+		"annotations": []
+	}
+}
