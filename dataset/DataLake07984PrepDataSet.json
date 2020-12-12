@@ -1,0 +1,21 @@
+{
+	"name": "DataLake07984PrepDataSet",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "DataLake",
+			"type": "LinkedServiceReference"
+		},
+		"folder": {
+			"name": "SSB"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"container": "ssb-07984-prep"
+			}
+		},
+		"schema": {}
+	}
+}
