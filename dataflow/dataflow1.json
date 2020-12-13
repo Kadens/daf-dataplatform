@@ -1,0 +1,27 @@
+{
+	"name": "dataflow1",
+	"properties": {
+		"folder": {
+			"name": "SSB"
+		},
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DataLakeSsb07984JsonDataSet",
+						"type": "DatasetReference"
+					},
+					"name": "CopySsb07984Json"
+				}
+			],
+			"sinks": [],
+			"transformations": [
+				{
+					"name": "Flatten1"
+				}
+			],
+			"script": "source(output(\n\t\tclass as string,\n\t\tdimension as (Alder as (category as (index as ({15-74} as boolean), label as ({15-74} as string)), label as string), ContentsCode as (category as (index as (Sysselsatte as boolean, SysselsatteArb as boolean), label as (Sysselsatte as string, SysselsatteArb as string), unit as (Sysselsatte as (base as string, decimals as boolean), SysselsatteArb as (base as string, decimals as boolean))), label as string, link as (describedby as (extension as (Sysselsatte as string, SysselsatteArb as string))[])), Kjonn as (category as (index as ({1} as boolean, {2} as boolean), label as ({1} as string, {2} as string)), label as string, link as (describedby as (extension as (Kjonn as string))[])), NACE2007 as (category as (index as ({00} as short, {01-03} as boolean, {05-09} as boolean, {10-33} as short, {35-39} as short, {41-43} as short, {45-47} as short, {49-53} as short, {55-56} as short, {58-63} as short, {64-66} as short, {68-75} as short, {77-82} as short, {84} as short, {85} as short, {86-88} as short, {90-99} as short), label as ({00} as string, {01-03} as string, {05-09} as string, {10-33} as string, {35-39} as string, {41-43} as string, {45-47} as string, {49-53} as string, {55-56} as string, {58-63} as string, {64-66} as string, {68-75} as string, {77-82} as string, {84} as string, {85} as string, {86-88} as string, {90-99} as string)), label as string, link as (describedby as (extension as (NACE2007 as string))[])), Region as (category as (index as ({K-3801} as boolean, {K-3802} as boolean, {K-3803} as short, {K-3804} as short, {K-3805} as short, {K-3806} as short, {K-3807} as short, {K-3808} as short, {K-3811} as short, {K-3812} as short, {K-3813} as short, {K-3814} as short, {K-3815} as short, {K-3816} as short, {K-3817} as short, {K-3818} as short, {K-3819} as short, {K-3820} as short, {K-3821} as short, {K-3822} as short, {K-3823} as short, {K-3824} as short, {K-3825} as short), label as ({K-3801} as string, {K-3802} as string, {K-3803} as string, {K-3804} as string, {K-3805} as string, {K-3806} as string, {K-3807} as string, {K-3808} as string, {K-3811} as string, {K-3812} as string, {K-3813} as string, {K-3814} as string, {K-3815} as string, {K-3816} as string, {K-3817} as string, {K-3818} as string, {K-3819} as string, {K-3820} as string, {K-3821} as string, {K-3822} as string, {K-3823} as string, {K-3824} as string, {K-3825} as string)), label as string, link as (describedby as (extension as (Region as string))[])), Tid as (category as (index as ({2015} as boolean, {2016} as boolean, {2017} as short, {2018} as short, {2019} as short), label as ({2015} as short, {2016} as short, {2017} as short, {2018} as short, {2019} as short)), label as string)),\n\t\tid as string[],\n\t\tlabel as string,\n\t\trole as (geo as string[], metric as string[], time as string[]),\n\t\tsize as short[],\n\t\tsource as string,\n\t\tupdated as timestamp,\n\t\tvalue as short[],\n\t\tversion as double\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\tdocumentForm: 'arrayOfDocuments') ~> CopySsb07984Json\nCopySsb07984Json foldDown(skipDuplicateMapInputs: false,\n\tskipDuplicateMapOutputs: false) ~> Flatten1"
+		}
+	}
+}
