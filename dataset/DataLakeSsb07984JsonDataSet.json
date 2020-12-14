@@ -5,6 +5,11 @@
 			"referenceName": "DataLake",
 			"type": "LinkedServiceReference"
 		},
+		"parameters": {
+			"sourcejsonfile": {
+				"type": "string"
+			}
+		},
 		"folder": {
 			"name": "SSB"
 		},
@@ -13,6 +18,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().sourcejsonfile",
+					"type": "Expression"
+				},
 				"container": "ssb-07984-json"
 			}
 		},
