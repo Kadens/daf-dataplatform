@@ -18,6 +18,10 @@
 		"typeProperties": {
 			"location": {
 				"type": "AzureBlobStorageLocation",
+				"fileName": {
+					"value": "@dataset().sourcejsonfile",
+					"type": "Expression"
+				},
 				"container": "ssb-07984-json"
 			}
 		},
