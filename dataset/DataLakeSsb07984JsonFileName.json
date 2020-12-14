@@ -16,6 +16,623 @@
 				"container": "ssb-07984-json"
 			}
 		},
-		"schema": {}
+		"schema": {
+			"type": "object",
+			"properties": {
+				"class": {
+					"type": "string"
+				},
+				"label": {
+					"type": "string"
+				},
+				"source": {
+					"type": "string"
+				},
+				"updated": {
+					"type": "string"
+				},
+				"id": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					}
+				},
+				"size": {
+					"type": "array",
+					"items": {
+						"type": "integer"
+					}
+				},
+				"dimension": {
+					"type": "object",
+					"properties": {
+						"Region": {
+							"type": "object",
+							"properties": {
+								"label": {
+									"type": "string"
+								},
+								"category": {
+									"type": "object",
+									"properties": {
+										"index": {
+											"type": "object",
+											"properties": {
+												"K-3801": {
+													"type": "integer"
+												},
+												"K-3802": {
+													"type": "integer"
+												},
+												"K-3803": {
+													"type": "integer"
+												},
+												"K-3804": {
+													"type": "integer"
+												},
+												"K-3805": {
+													"type": "integer"
+												},
+												"K-3806": {
+													"type": "integer"
+												},
+												"K-3807": {
+													"type": "integer"
+												},
+												"K-3808": {
+													"type": "integer"
+												},
+												"K-3811": {
+													"type": "integer"
+												},
+												"K-3812": {
+													"type": "integer"
+												},
+												"K-3813": {
+													"type": "integer"
+												},
+												"K-3814": {
+													"type": "integer"
+												},
+												"K-3815": {
+													"type": "integer"
+												},
+												"K-3816": {
+													"type": "integer"
+												},
+												"K-3817": {
+													"type": "integer"
+												},
+												"K-3818": {
+													"type": "integer"
+												},
+												"K-3819": {
+													"type": "integer"
+												},
+												"K-3820": {
+													"type": "integer"
+												},
+												"K-3821": {
+													"type": "integer"
+												},
+												"K-3822": {
+													"type": "integer"
+												},
+												"K-3823": {
+													"type": "integer"
+												},
+												"K-3824": {
+													"type": "integer"
+												},
+												"K-3825": {
+													"type": "integer"
+												}
+											}
+										},
+										"label": {
+											"type": "object",
+											"properties": {
+												"K-3801": {
+													"type": "string"
+												},
+												"K-3802": {
+													"type": "string"
+												},
+												"K-3803": {
+													"type": "string"
+												},
+												"K-3804": {
+													"type": "string"
+												},
+												"K-3805": {
+													"type": "string"
+												},
+												"K-3806": {
+													"type": "string"
+												},
+												"K-3807": {
+													"type": "string"
+												},
+												"K-3808": {
+													"type": "string"
+												},
+												"K-3811": {
+													"type": "string"
+												},
+												"K-3812": {
+													"type": "string"
+												},
+												"K-3813": {
+													"type": "string"
+												},
+												"K-3814": {
+													"type": "string"
+												},
+												"K-3815": {
+													"type": "string"
+												},
+												"K-3816": {
+													"type": "string"
+												},
+												"K-3817": {
+													"type": "string"
+												},
+												"K-3818": {
+													"type": "string"
+												},
+												"K-3819": {
+													"type": "string"
+												},
+												"K-3820": {
+													"type": "string"
+												},
+												"K-3821": {
+													"type": "string"
+												},
+												"K-3822": {
+													"type": "string"
+												},
+												"K-3823": {
+													"type": "string"
+												},
+												"K-3824": {
+													"type": "string"
+												},
+												"K-3825": {
+													"type": "string"
+												}
+											}
+										}
+									}
+								},
+								"link": {
+									"type": "object",
+									"properties": {
+										"describedby": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"extension": {
+														"type": "object",
+														"properties": {
+															"Region": {
+																"type": "string"
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						},
+						"NACE2007": {
+							"type": "object",
+							"properties": {
+								"label": {
+									"type": "string"
+								},
+								"category": {
+									"type": "object",
+									"properties": {
+										"index": {
+											"type": "object",
+											"properties": {
+												"84": {
+													"type": "integer"
+												},
+												"85": {
+													"type": "integer"
+												},
+												"01-03": {
+													"type": "integer"
+												},
+												"05-09": {
+													"type": "integer"
+												},
+												"10-33": {
+													"type": "integer"
+												},
+												"35-39": {
+													"type": "integer"
+												},
+												"41-43": {
+													"type": "integer"
+												},
+												"45-47": {
+													"type": "integer"
+												},
+												"49-53": {
+													"type": "integer"
+												},
+												"55-56": {
+													"type": "integer"
+												},
+												"58-63": {
+													"type": "integer"
+												},
+												"64-66": {
+													"type": "integer"
+												},
+												"68-75": {
+													"type": "integer"
+												},
+												"77-82": {
+													"type": "integer"
+												},
+												"86-88": {
+													"type": "integer"
+												},
+												"90-99": {
+													"type": "integer"
+												},
+												"00": {
+													"type": "integer"
+												}
+											}
+										},
+										"label": {
+											"type": "object",
+											"properties": {
+												"84": {
+													"type": "string"
+												},
+												"85": {
+													"type": "string"
+												},
+												"01-03": {
+													"type": "string"
+												},
+												"05-09": {
+													"type": "string"
+												},
+												"10-33": {
+													"type": "string"
+												},
+												"35-39": {
+													"type": "string"
+												},
+												"41-43": {
+													"type": "string"
+												},
+												"45-47": {
+													"type": "string"
+												},
+												"49-53": {
+													"type": "string"
+												},
+												"55-56": {
+													"type": "string"
+												},
+												"58-63": {
+													"type": "string"
+												},
+												"64-66": {
+													"type": "string"
+												},
+												"68-75": {
+													"type": "string"
+												},
+												"77-82": {
+													"type": "string"
+												},
+												"86-88": {
+													"type": "string"
+												},
+												"90-99": {
+													"type": "string"
+												},
+												"00": {
+													"type": "string"
+												}
+											}
+										}
+									}
+								},
+								"link": {
+									"type": "object",
+									"properties": {
+										"describedby": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"extension": {
+														"type": "object",
+														"properties": {
+															"NACE2007": {
+																"type": "string"
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						},
+						"Kjonn": {
+							"type": "object",
+							"properties": {
+								"label": {
+									"type": "string"
+								},
+								"category": {
+									"type": "object",
+									"properties": {
+										"index": {
+											"type": "object",
+											"properties": {
+												"1": {
+													"type": "integer"
+												},
+												"2": {
+													"type": "integer"
+												}
+											}
+										},
+										"label": {
+											"type": "object",
+											"properties": {
+												"1": {
+													"type": "string"
+												},
+												"2": {
+													"type": "string"
+												}
+											}
+										}
+									}
+								},
+								"link": {
+									"type": "object",
+									"properties": {
+										"describedby": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"extension": {
+														"type": "object",
+														"properties": {
+															"Kjonn": {
+																"type": "string"
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						},
+						"Alder": {
+							"type": "object",
+							"properties": {
+								"label": {
+									"type": "string"
+								},
+								"category": {
+									"type": "object",
+									"properties": {
+										"index": {
+											"type": "object",
+											"properties": {
+												"15-74": {
+													"type": "integer"
+												}
+											}
+										},
+										"label": {
+											"type": "object",
+											"properties": {
+												"15-74": {
+													"type": "string"
+												}
+											}
+										}
+									}
+								}
+							}
+						},
+						"ContentsCode": {
+							"type": "object",
+							"properties": {
+								"label": {
+									"type": "string"
+								},
+								"category": {
+									"type": "object",
+									"properties": {
+										"index": {
+											"type": "object",
+											"properties": {
+												"Sysselsatte": {
+													"type": "integer"
+												},
+												"SysselsatteArb": {
+													"type": "integer"
+												}
+											}
+										},
+										"label": {
+											"type": "object",
+											"properties": {
+												"Sysselsatte": {
+													"type": "string"
+												},
+												"SysselsatteArb": {
+													"type": "string"
+												}
+											}
+										},
+										"unit": {
+											"type": "object",
+											"properties": {
+												"Sysselsatte": {
+													"type": "object",
+													"properties": {
+														"base": {
+															"type": "string"
+														},
+														"decimals": {
+															"type": "integer"
+														}
+													}
+												},
+												"SysselsatteArb": {
+													"type": "object",
+													"properties": {
+														"base": {
+															"type": "string"
+														},
+														"decimals": {
+															"type": "integer"
+														}
+													}
+												}
+											}
+										}
+									}
+								},
+								"link": {
+									"type": "object",
+									"properties": {
+										"describedby": {
+											"type": "array",
+											"items": {
+												"type": "object",
+												"properties": {
+													"extension": {
+														"type": "object",
+														"properties": {
+															"Sysselsatte": {
+																"type": "string"
+															},
+															"SysselsatteArb": {
+																"type": "string"
+															}
+														}
+													}
+												}
+											}
+										}
+									}
+								}
+							}
+						},
+						"Tid": {
+							"type": "object",
+							"properties": {
+								"label": {
+									"type": "string"
+								},
+								"category": {
+									"type": "object",
+									"properties": {
+										"index": {
+											"type": "object",
+											"properties": {
+												"2015": {
+													"type": "integer"
+												},
+												"2016": {
+													"type": "integer"
+												},
+												"2017": {
+													"type": "integer"
+												},
+												"2018": {
+													"type": "integer"
+												},
+												"2019": {
+													"type": "integer"
+												}
+											}
+										},
+										"label": {
+											"type": "object",
+											"properties": {
+												"2015": {
+													"type": "string"
+												},
+												"2016": {
+													"type": "string"
+												},
+												"2017": {
+													"type": "string"
+												},
+												"2018": {
+													"type": "string"
+												},
+												"2019": {
+													"type": "string"
+												}
+											}
+										}
+									}
+								}
+							}
+						}
+					}
+				},
+				"value": {
+					"type": "array",
+					"items": {
+						"type": "integer"
+					}
+				},
+				"role": {
+					"type": "object",
+					"properties": {
+						"time": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						},
+						"metric": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						},
+						"geo": {
+							"type": "array",
+							"items": {
+								"type": "string"
+							}
+						}
+					}
+				},
+				"version": {
+					"type": "string"
+				}
+			}
+		}
 	}
 }
