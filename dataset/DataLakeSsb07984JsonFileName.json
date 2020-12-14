@@ -5,11 +5,6 @@
 			"referenceName": "DataLake",
 			"type": "LinkedServiceReference"
 		},
-		"parameters": {
-			"sourcejsonfile": {
-				"type": "string"
-			}
-		},
 		"folder": {
 			"name": "SSB"
 		},

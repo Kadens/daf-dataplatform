@@ -56,10 +56,7 @@
 				"inputs": [
 					{
 						"referenceName": "DataLakeSsb07984JsonFileName",
-						"type": "DatasetReference",
-						"parameters": {
-							"sourcejsonfile": "ssb07984.csv"
-						}
+						"type": "DatasetReference"
 					}
 				],
 				"outputs": [
