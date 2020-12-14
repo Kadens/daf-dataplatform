@@ -56,7 +56,7 @@
 				},
 				"inputs": [
 					{
-						"referenceName": "DataLakeSsb07984JsonDataSet",
+						"referenceName": "DataLakeSsb07984JsonFileName",
 						"type": "DatasetReference"
 					}
 				],
